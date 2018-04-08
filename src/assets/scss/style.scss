@@ -6,7 +6,31 @@
 @import "components/_buttons";
 
 .app {
+  &__blog {
+    width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+    .blog {
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      &__item {
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+      }
+      &__link {
 
+      }
+      &__preview {
+
+      }
+      &__heading {
+
+      }
+    }
+  }
 }
 
 //pages
