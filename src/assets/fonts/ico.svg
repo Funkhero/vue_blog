@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="no"?> 
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <font id="ico" horiz-adv-x="38">
+    <font-face font-family="ico"
+      units-per-em="21.2" ascent="21.2"
+      descent="0" />
+    <missing-glyph horiz-adv-x="0" />
+    <glyph glyph-name="close"
+      unicode="&#xEA01;"
+      horiz-adv-x="21.2" d=" M21.2 18.4L18.4 21.2L10.6 13.4L2.8 21.2L0 18.4L7.8 10.6L0 2.8L2.8 0L10.6 7.8L18.4 0L21.2 2.8L13.4 10.6z" />
+    <glyph glyph-name="menu"
+      unicode="&#xEA02;"
+      horiz-adv-x="27.560000000000002" d=" M0 21.2H27.56V16.96H0V21.2z M0 12.72H27.56V8.48H0V12.72z M0 4.24H27.56V0H0V4.24z" />
+    <glyph glyph-name="next"
+      unicode="&#xEA03;"
+      horiz-adv-x="42.4" d=" M0 1.1777777777778L21.2 10.6L0 20.0222222222222z M18.8444444444444 1.1777777777778L40.0444444444444 10.6L18.8444444444444 20.0222222222222z M37.6888888888889 21.2H42.4V0H37.6888888888889V21.2z" />
+    <glyph glyph-name="playlist"
+      unicode="&#xEA04;"
+      horiz-adv-x="27.560000000000002" d=" M27.56 21.2H27.56V21.2H27.56V21.2z M27.56 12.72H27.56V12.72H27.56V12.72z M27.56 4.24H27.56V4.24H27.56V4.24z" />
+    <glyph glyph-name="playpause"
+      unicode="&#xEA05;"
+      horiz-adv-x="44.75555555555556" d=" M0 1.1777777777778L21.2 10.6L0 20.0222222222222z M30.6222222222222 21.2H35.3333333333333V0H30.6222222222222V21.2z M40.0444444444444 21.2H44.7555555555556V0H40.0444444444444V21.2z" />
+    <glyph glyph-name="prev"
+      unicode="&#xEA06;"
+      horiz-adv-x="42.4" d=" M42.4 1.1777777777778L21.2 10.6L42.4 20.0222222222222z M23.5555555555556 1.1777777777778L2.3555555555556 10.6L23.5555555555556 20.0222222222222z M4.7111111111111 0H0V21.2H4.7111111111111V0z" />
+  </font>
+</defs>
+</svg>

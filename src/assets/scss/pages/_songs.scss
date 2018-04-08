@@ -1,0 +1,42 @@
+.songs {
+  width: 440px;
+  height: 440px;
+  border-top: 1px solid #D7D7D7;
+  border-bottom: 1px solid #D7D7D7;
+  &__top {
+    border-bottom: 1px solid #D7D7D7;
+    padding: 20px 0;
+    text-align: center;
+  }
+  &__close {
+    font-size: 18px;
+    line-height: 1;
+    color: #fff;
+    transition: color .2s;
+    &:hover {
+      color: lightgray;
+    }
+  }
+  &__list {
+    padding: 44px;
+    overflow: auto;
+    max-height: 290px;
+  }
+  &__item {
+    text-align: center;
+    margin-bottom: 32px;
+    cursor: pointer;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &__name {
+    font-size: 18px;
+    line-height: 24px;
+    font-family: $font-bold;
+  }
+  &__author {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

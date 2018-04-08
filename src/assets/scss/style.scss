@@ -1,0 +1,28 @@
+//components
+@import "components/_fonts";
+@import "components/_reset";
+@import "components/_iconfont";
+@import "components/_colors";
+@import "components/_buttons";
+
+.app {
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image 0.3s linear;
+  &__wrapper {
+    background-color: rgba(0,0,0,.6);
+    height: 100vh;
+  }
+  &__content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+}
+
+//pages
+@import "pages/_player";
+@import "pages/_songs";
+
