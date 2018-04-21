@@ -23,26 +23,26 @@ src: url("../fonts/ico.eot");
 
 .ico-close::before { content: "\ea01";  }
 
-.ico-menu::before { content: "\ea03";  }
+.ico-menu::before { content: "\ea02";  }
 
-.ico-next::before { content: "\ea02";  }
+.ico-next::before { content: "\ea03";  }
 
 .ico-playlist::before { content: "\ea04";  }
 
-.ico-playpause::before { content: "\ea05";  }
+.ico-playpause::before { content: "\ea06";  }
 
-.ico-prev::before { content: "\ea06";  }
+.ico-prev::before { content: "\ea05";  }
 
 
 
 $ico-close: "\ea01";
 
-$ico-menu: "\ea03";
+$ico-menu: "\ea02";
 
-$ico-next: "\ea02";
+$ico-next: "\ea03";
 
 $ico-playlist: "\ea04";
 
-$ico-playpause: "\ea05";
+$ico-playpause: "\ea06";
 
-$ico-prev: "\ea06";
+$ico-prev: "\ea05";
