@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const IconfontPlugin = require('webpack-iconfont-plugin');
@@ -52,7 +53,25 @@ module.exports = {
               test: /\.scss$/,
               use: ExtractTextWebpackPlugin.extract({
                   fallback: 'style-loader',
-                  use: ['css-loader?minimize!autoprefixer-loader?{browsers:["last 15 version", "Firefox 15"]}', 'sass-loader']
+                  use: [
+                      {
+                          loader: "css-loader",
+                          options: {
+                              minimize: true,
+                              // url: false
+                          }
+                      },
+                      {
+                          loader: "autoprefixer-loader",
+                          options: {
+                              browsers: ["last 15 version", "Firefox 15"]
+                          }
+                      },
+                      {
+                          loader: "sass-loader",
+                          options: {}
+                      }
+                  ]
               })
           },
           {
@@ -88,5 +107,10 @@ module.exports = {
                 removeComments: true
             }
         }),
+        new webpack.ProvidePlugin({
+            Vue: 'vue/dist/vue.js',
+            Vuex: 'vuex',
+            VueRouter: 'vue-router',
+        })
     ]
 };
