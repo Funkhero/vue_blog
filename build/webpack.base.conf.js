@@ -28,7 +28,8 @@ module.exports = {
           {
               test: /\.js$/,
               loader: 'babel-loader',
-              include: [path.join(__dirname, '..', 'src')]
+              include: [path.join(__dirname, '..', 'src')],
+              exclude: /node_modules/
           },
           {
               test: /\.(png|jpe?g|gif|svg)$/,
@@ -111,6 +112,7 @@ module.exports = {
             Vue: 'vue/dist/vue.js',
             Vuex: 'vuex',
             VueRouter: 'vue-router',
+            axios: 'axios'
         })
     ]
 };

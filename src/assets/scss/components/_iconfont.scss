@@ -27,11 +27,11 @@ src: url("../fonts/ico.eot");
 
 .ico-next::before { content: "\ea03";  }
 
-.ico-playlist::before { content: "\ea04";  }
+.ico-playlist::before { content: "\ea05";  }
 
-.ico-playpause::before { content: "\ea06";  }
+.ico-playpause::before { content: "\ea04";  }
 
-.ico-prev::before { content: "\ea05";  }
+.ico-prev::before { content: "\ea06";  }
 
 
 
@@ -41,8 +41,8 @@ $ico-menu: "\ea02";
 
 $ico-next: "\ea03";
 
-$ico-playlist: "\ea04";
+$ico-playlist: "\ea05";
 
-$ico-playpause: "\ea06";
+$ico-playpause: "\ea04";
 
-$ico-prev: "\ea05";
+$ico-prev: "\ea06";

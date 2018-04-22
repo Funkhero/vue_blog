@@ -12,17 +12,19 @@ module.exports = () => {
                     NODE_ENV: JSON.stringify('production')
                 }
             }),
-            new webpack.optimize.OccurrenceOrderPlugin(),
-            new CompressionWebpackPlugin({
-                asset: '[path].gz[query]',
-                algorithm: 'gzip',
-                test: new RegExp(
-                    '\\.(' + config.prod.productionGzipExtensions.join('|') + ')$'
-                ),
-                /* deleteOriginalAssets: true, */
-                threshold: 0,
-                minRatio: 0.8
-            })
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    sequences: true,
+                    booleans: true,
+                    loops: true,
+                    unused: true,
+                    warnings: false,
+                    drop_console: true,
+                    unsafe: true
+                },
+                sourceMap: true
+            }),
+            new webpack.optimize.OccurrenceOrderPlugin()
         ]
     };
 };
