@@ -1,5 +1,6 @@
 import './assets/scss/style.scss'
 import 'materialize-css'
+import { sync } from 'vuex-router-sync'
 import Store from './store'
 import routes from './router'
 import App from './App.vue'
@@ -13,6 +14,8 @@ export const router = new VueRouter.default({
     // mode: 'history',
     routes
 });
+
+sync(store, router);
 
 new Vue({
     el: '#app',

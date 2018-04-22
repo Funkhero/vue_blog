@@ -109,6 +109,59 @@
   }
 }
 
+.not-found {
+  position: relative;
+  height: calc(100vmin - 60px);
+  &__block {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  &__toggle {
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    display: inline-block;
+  }
+  h2 {
+    font-size: 60px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 20px;
+    color: $color-violet;
+    transition: all .2s ease-in;
+    &:hover {
+      color: $color-purple;
+    }
+  }
+}
+
+.not-found-animation-enter-active {
+  animation: not-found .5s;
+}
+
+.not-found-animation-leave-active {
+  animation: not-found .5s reverse;
+}
+
+@keyframes not-found {
+  0% {
+    transform: translateY(-100px);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 //pages
 @import "pages/_auth";
 

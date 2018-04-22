@@ -13,31 +13,31 @@
                 </li>
             </ul>
             <div v-if="haveReg" class="auth__signin">
-                <form action="" class="form">
+                <form action="" class="form" @submit.prevent="auth(model)">
                     <div class="form__block">
                         <label for="" class="form__label">Email</label>
-                        <input type="email" class="form__input">
+                        <input v-model.lazy="model.email" type="email" class="form__input">
                     </div>
                     <div class="form__block">
                         <label for="" class="form__label">Пароль</label>
-                        <input type="password" class="form__input">
+                        <input v-model.lazy="model.password" type="password" class="form__input">
                     </div>
                     <button type="submit" class="button form__submit">Войти</button>
                 </form>
             </div>
             <div v-else="" class="auth__register">
-                <form action="" class="form">
+                <form action="" class="form" @submit.prevent="auth(model)">
                     <div class="form__block">
                         <label for="" class="form__label">Email</label>
-                        <input type="email" class="form__input">
+                        <input v-model.lazy="model.email" type="email" class="form__input">
                     </div>
                     <div class="form__block">
                         <label for="" class="form__label">Пароль</label>
-                        <input type="password" class="form__input">
+                        <input v-model.lazy="model.password" type="password" class="form__input">
                     </div>
                     <div class="form__block">
                         <label for="" class="form__label">Повтор пароля</label>
-                        <input type="password" class="form__input">
+                        <input v-model.lazy="model.repassword" type="password" class="form__input">
                     </div>
                     <button type="submit" class="form__submit button">Зарегистрироватся</button>
                 </form>
@@ -47,16 +47,24 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
+
     module.exports = {
         name: 'auth',
         methods: {
+            ...mapActions(['auth']),
             showForm(val) {
                 this.haveReg = val;
             },
         },
         data: function () {
             return {
-                haveReg: true
+                haveReg: true,
+                model: {
+                    email: '',
+                    password: '',
+                    repassword: null
+                }
             }
         }
     }
