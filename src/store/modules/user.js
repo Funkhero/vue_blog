@@ -24,6 +24,20 @@ const User = {
             } else {
                 console.log('Все сломалось')
             }
+        },
+        update({ commit }, { id, userData }) {
+            return new Promise((resolve, reject) => {
+                axios.post('/users', { id, userData }).then(
+                    response => {
+                        console.log(response);
+                        commit('set', { item: 'user', payload: response.user });
+                        resolve();
+                    },
+                    error => {
+                        reject(error);
+                    }
+                );
+            });
         }
     },
     getters: {

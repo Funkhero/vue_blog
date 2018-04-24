@@ -26,7 +26,7 @@
                 </form>
             </div>
             <div v-else="" class="auth__register">
-                <form action="" class="form" @submit.prevent="auth(model)">
+                <form action="" class="form" @submit.prevent="update(model)">
                     <div class="form__block">
                         <label for="" class="form__label">Email</label>
                         <input v-model.lazy="model.email" type="email" class="form__input">
@@ -56,6 +56,26 @@
             showForm(val) {
                 this.haveReg = val;
             },
+            formSubmit() {
+                this.$validator.validateAll().then(result => {
+                    if(!result) {
+                        console.warn('invalid');
+                    } else {
+                        let userData = {
+                            displayName: this.profile.displayName.value
+                        };
+
+                        this.update('users/update', { id: this.id, userData }).then(
+                            result => {
+                                this.$store.commit('set', { item: 'notice', payload: Common.createNotice('info', { message: 'Пользователь обновлен' }, null) });
+                            }, error => {
+                                console.error(error);
+                                this.$store.commit('set', { item: 'notice', payload: Common.createNotice('error', error, null) });
+                            }
+                        );
+                    }
+                });
+            }
         },
         data: function () {
             return {
