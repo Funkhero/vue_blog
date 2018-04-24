@@ -112,7 +112,8 @@ module.exports = {
             Vue: 'vue/dist/vue.js',
             Vuex: 'vuex',
             VueRouter: 'vue-router',
-            axios: 'axios'
+            axios: 'axios',
+            VeeValidate: 'vee-validate'
         })
     ]
 };

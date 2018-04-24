@@ -13,31 +13,31 @@
                 </li>
             </ul>
             <div v-if="haveReg" class="auth__signin">
-                <form action="" class="form" @submit.prevent="auth(model)">
+                <form action="" class="form" novalidate @submit.prevent="auth(model)">
                     <div class="form__block">
                         <label for="" class="form__label">Email</label>
-                        <input v-model.lazy="model.email" type="email" class="form__input">
+                        <input v-model.lazy="model.email" v-validate="'required|email'" type="email" class="form__input">
                     </div>
                     <div class="form__block">
                         <label for="" class="form__label">Пароль</label>
-                        <input v-model.lazy="model.password" type="password" class="form__input">
+                        <input v-model.lazy="model.password" v-validate="'required'" type="password" class="form__input">
                     </div>
                     <button type="submit" class="button form__submit">Войти</button>
                 </form>
             </div>
             <div v-else="" class="auth__register">
-                <form action="" class="form" @submit.prevent="update(model)">
+                <form action="" class="form" novalidate @submit.prevent="formSubmit()">
                     <div class="form__block">
                         <label for="" class="form__label">Email</label>
-                        <input v-model.lazy="model.email" type="email" class="form__input">
+                        <input v-model.lazy="model.email" v-validate="'required|email'" type="email" class="form__input">
                     </div>
                     <div class="form__block">
                         <label for="" class="form__label">Пароль</label>
-                        <input v-model.lazy="model.password" type="password" class="form__input">
+                        <input v-model.lazy="model.password" v-validate="'required'" type="password" class="form__input">
                     </div>
                     <div class="form__block">
                         <label for="" class="form__label">Повтор пароля</label>
-                        <input v-model.lazy="model.repassword" type="password" class="form__input">
+                        <input v-model.lazy="model.repassword" v-validate="'required'" type="password" class="form__input">
                     </div>
                     <button type="submit" class="form__submit button">Зарегистрироватся</button>
                 </form>
@@ -52,27 +52,17 @@
     module.exports = {
         name: 'auth',
         methods: {
-            ...mapActions(['auth']),
+            ...mapActions(['auth', 'update']),
             showForm(val) {
                 this.haveReg = val;
             },
             formSubmit() {
                 this.$validator.validateAll().then(result => {
-                    if(!result) {
-                        console.warn('invalid');
-                    } else {
-                        let userData = {
-                            displayName: this.profile.displayName.value
-                        };
+                    if (result) {
+                        console.log(result);
+                        this.update( this.model ).then(()=>{
 
-                        this.update('users/update', { id: this.id, userData }).then(
-                            result => {
-                                this.$store.commit('set', { item: 'notice', payload: Common.createNotice('info', { message: 'Пользователь обновлен' }, null) });
-                            }, error => {
-                                console.error(error);
-                                this.$store.commit('set', { item: 'notice', payload: Common.createNotice('error', error, null) });
-                            }
-                        );
+                        });
                     }
                 });
             }

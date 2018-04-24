@@ -6,6 +6,7 @@ import routes from './router'
 import App from './App.vue'
 
 Vue.use(Vuex);
+Vue.use(VeeValidate);
 Vue.use(VueRouter.default);
 
 const store = new Vuex.Store(Store);

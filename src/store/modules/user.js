@@ -25,7 +25,10 @@ const User = {
                 console.log('Все сломалось')
             }
         },
-        update({ commit }, { id, userData }) {
+        update({ commit }, { email }) {
+
+            console.log(email);
+
             return new Promise((resolve, reject) => {
                 axios.post('/users', { id, userData }).then(
                     response => {
