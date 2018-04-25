@@ -5,41 +5,41 @@
             <ul class="auth__switcher">
                 <li class="switcher__item">
                      <input id="tabInput" type="radio" name="tab" class="sign-in hide" checked>
-                     <label for="tabInput" class="tab" @click="showForm(true)">Вход</label>
+                     <label for="tabInput" class="tab" @click="showForm(true)">Sign in</label>
                 </li>
                 <li class="switcher__item">
                     <input id="tabRegistration" type="radio" name="tab" class="sign-up hide">
-                    <label for="tabRegistration" class="tab" @click="showForm(false)">Регистрация</label>
+                    <label for="tabRegistration" class="tab" @click="showForm(false)">Registration</label>
                 </li>
             </ul>
             <div v-if="haveReg" class="auth__signin">
-                <form action="" class="form" novalidate @submit.prevent="auth(model)">
+                <form action="" class="form" novalidate @submit.prevent="signInform(model)">
                     <div class="form__block">
                         <label for="" class="form__label">Email</label>
                         <input v-model.lazy="model.email" v-validate="'required|email'" type="email" class="form__input">
                     </div>
                     <div class="form__block">
-                        <label for="" class="form__label">Пароль</label>
+                        <label for="" class="form__label">Password</label>
                         <input v-model.lazy="model.password" v-validate="'required'" type="password" class="form__input">
                     </div>
-                    <button type="submit" class="button form__submit">Войти</button>
+                    <button type="submit" class="button form__submit">Sign in</button>
                 </form>
             </div>
             <div v-else="" class="auth__register">
-                <form action="" class="form" novalidate @submit.prevent="formSubmit()">
+                <form action="" class="form" novalidate @submit.prevent="signUpform(model)">
                     <div class="form__block">
                         <label for="" class="form__label">Email</label>
                         <input v-model.lazy="model.email" v-validate="'required|email'" type="email" class="form__input">
                     </div>
                     <div class="form__block">
-                        <label for="" class="form__label">Пароль</label>
+                        <label for="" class="form__label">Password</label>
                         <input v-model.lazy="model.password" v-validate="'required'" type="password" class="form__input">
                     </div>
                     <div class="form__block">
-                        <label for="" class="form__label">Повтор пароля</label>
+                        <label for="" class="form__label">Password repeat</label>
                         <input v-model.lazy="model.repassword" v-validate="'required'" type="password" class="form__input">
                     </div>
-                    <button type="submit" class="form__submit button">Зарегистрироватся</button>
+                    <button type="submit" class="form__submit button">Sign up</button>
                 </form>
             </div>
         </div>
@@ -52,17 +52,31 @@
     module.exports = {
         name: 'auth',
         methods: {
-            ...mapActions(['auth', 'update']),
+            ...mapActions(['signIn', 'signUp']),
             showForm(val) {
                 this.haveReg = val;
             },
-            formSubmit() {
+            signInform(model) {
                 this.$validator.validateAll().then(result => {
                     if (result) {
-                        console.log(result);
-                        this.update( this.model ).then(()=>{
-
+                        this.signIn( model ).then(result => {
+                        }, error => {
+                            console.error(error);
                         });
+                    } else {
+                        alert('Форма заполнена не верно');
+                    }
+                });
+            },
+            signUpform(model) {
+                this.$validator.validateAll().then(result => {
+                    if (result) {
+                        this.signUp( model ).then(result => {
+                        }, error => {
+                            console.error(error);
+                        });
+                    } else {
+                        alert('Форма заполнена не верно');
                     }
                 });
             }

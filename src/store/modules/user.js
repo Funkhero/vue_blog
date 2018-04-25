@@ -1,7 +1,12 @@
 
 const User = {
     state: {
-        user: null
+        // user: null
+        user: {
+            name: 'Petya',
+            email: 'petya@qwerty.com',
+            info: 'programmer',
+        }
     },
     mutations: {
         set(state, { type, data }) {
@@ -9,28 +14,36 @@ const User = {
         }
     },
     actions: {
-        auth({ commit }, { email, password, repassword }) {
-            if (password === repassword || !repassword) {
-                axios.post('/api/auth', {
+        signIn({ commit }, { email, password }) {
+            axios.post('/api/signIn', {
+                email,
+                password
+            }).then((response) => {
+                commit('set', { tupe: 'user', data: response.user });
+                console.log(email, password)
+            }).catch((err) => {
+                console.log(err)
+            })
+        },
+        signUp({ commit }, { email, password, repassword }) {
+            if (password === repassword) {
+                axios.post('/api/signUp', {
                     email,
                     password,
                     repassword
-                }).then((res) => {
-                    commit('set', { tupe: 'user', data: res });
+                }).then((response) => {
+                    commit('set', { tupe: 'user', data: response.user });
                     console.log(email, password, repassword)
                 }).catch((err) => {
-                    console.log(err + ' типа ошибка')
+                    console.log(err)
                 })
             } else {
-                console.log('Все сломалось')
+                alert('Пароли не совпадают')
             }
         },
-        update({ commit }, { email }) {
-
-            console.log(email);
-
+        update({ commit }, { name, email, info }) {
             return new Promise((resolve, reject) => {
-                axios.post('/users', { id, userData }).then(
+                axios.post('/users', { name, email, info }).then(
                     response => {
                         console.log(response);
                         commit('set', { item: 'user', payload: response.user });

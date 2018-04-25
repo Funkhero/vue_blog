@@ -6,13 +6,13 @@
             </router-link>
         </div>
         <div class="top-menu__menu">
-            <router-link tag="a" to="/vuejs">VueJS</router-link>
-            <router-link tag="a" to="/cpp">Backbone</router-link>
-            <router-link tag="a" to="/js">Marionette</router-link>
-            <router-link tag="a" to="/linux">Jquery</router-link>
+            <router-link tag="a" to="/blog">Blog</router-link>
+            <router-link tag="a" to="/popular">Popular</router-link>
+            <router-link tag="a" to="/news">Breaking news</router-link>
+            <router-link tag="a" to="/profile">Profile</router-link>
         </div>
         <div class="top-menu__auth">
-            <router-link tag="a" to="/auth">ВХОД</router-link>
+            <router-link tag="a" to="/auth">Sign in</router-link>
         </div>
     </div>
 </template>
