@@ -19,7 +19,7 @@ const User = {
                 email,
                 password
             }).then((response) => {
-                commit('set', { tupe: 'user', data: response.user });
+                commit('set', { type: 'user', data: response.user });
                 console.log(email, password)
             }).catch((err) => {
                 console.log(err)
@@ -32,7 +32,7 @@ const User = {
                     password,
                     repassword
                 }).then((response) => {
-                    commit('set', { tupe: 'user', data: response.user });
+                    commit('set', { type: 'user', data: response.user });
                     console.log(email, password, repassword)
                 }).catch((err) => {
                     console.log(err)

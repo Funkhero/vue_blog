@@ -1,8 +1,10 @@
 import User from './modules/user'
+import Blog from './modules/blog'
 
 const Store = {
     modules: {
-        User
+        User,
+        Blog
     }
 };
 

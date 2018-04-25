@@ -25,9 +25,9 @@ src: url("../fonts/ico.eot");
 
 .ico-menu::before { content: "\ea02";  }
 
-.ico-next::before { content: "\ea03";  }
+.ico-next::before { content: "\ea04";  }
 
-.ico-playlist::before { content: "\ea04";  }
+.ico-playlist::before { content: "\ea03";  }
 
 .ico-playpause::before { content: "\ea05";  }
 
@@ -39,9 +39,9 @@ $ico-close: "\ea01";
 
 $ico-menu: "\ea02";
 
-$ico-next: "\ea03";
+$ico-next: "\ea04";
 
-$ico-playlist: "\ea04";
+$ico-playlist: "\ea03";
 
 $ico-playpause: "\ea05";
 
