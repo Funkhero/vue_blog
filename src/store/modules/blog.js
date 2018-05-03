@@ -1,13 +1,7 @@
 
 const Blog = {
     state: {
-        posts: [
-            {
-                img: './img/smiling.jpg',
-                title: '',
-                shortcut: ''
-            }
-        ]
+        posts: []
     },
     mutations: {
         set(state, { type, data }) {
@@ -16,8 +10,9 @@ const Blog = {
     },
     actions: {
         getPosts() {
-            axios.post('posts').then(response => {
-                commit('set', { type: 'posts', data: response.posts });
+            let _this = this;
+            axios.get('/getPosts').then(response => {
+                _this.commit('set', { type: 'posts', data: response.data });
             }).catch((err) => {
                 console.log(err)
             })

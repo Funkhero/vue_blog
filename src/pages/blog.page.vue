@@ -1,6 +1,6 @@
 <template>
     <div class="blog">
-        <div class="blog__block">
+        <div @click.prevent="setPost" class="blog__block">
             <ul class="blog__list">
                 <li v-for="post in posts" class="blog__post">
                     <img :src="post.img" alt="" class="post__img">
@@ -24,8 +24,18 @@
               posts: this.$store.getters.posts
           }
         },
+        created() {
+            this.getPosts();
+            console.log(this.posts)
+        },
         methods: {
-            ...mapActions(['getPosts'])
+            ...mapActions(['getPosts']),
+            setPost() {
+                axios.post('/setPost', {
+                    img: '/img/',
+                    title: 'Flintstone'
+                })
+            }
         }
     }
 </script>
