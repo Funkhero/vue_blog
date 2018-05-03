@@ -19,23 +19,16 @@
 
     module.exports = {
         name: 'blog',
-        data() {
-          return {
-              posts: this.$store.getters.posts
-          }
+        computed: {
+            posts() {
+                return this.$store.getters.posts
+            }
         },
         created() {
             this.getPosts();
-            console.log(this.posts)
         },
         methods: {
-            ...mapActions(['getPosts']),
-            setPost() {
-                axios.post('/setPost', {
-                    img: '/img/',
-                    title: 'Flintstone'
-                })
-            }
+            ...mapActions(['getPosts', 'setPost'])
         }
     }
 </script>

@@ -6,13 +6,26 @@ const Blog = {
     mutations: {
         set(state, { type, data }) {
             state[type] = data
+        },
+        setOne(state, { type, data }) {
+            state[type].push(data)
         }
     },
     actions: {
         getPosts() {
-            let _this = this;
             axios.get('/getPosts').then(response => {
-                _this.commit('set', { type: 'posts', data: response.data });
+                this.commit('set', { type: 'posts', data: response.data });
+            }).catch((err) => {
+                console.log(err)
+            })
+        },
+        setPost() {
+            axios.post('/setPost', {
+                img: '/img/smiling.jpg',
+                title: 'Some title dsfgdfg sdfh sdfh'
+            }).then(response => {
+                console.log(response);
+                this.commit('setOne', { type: 'posts', data: response.data });
             }).catch((err) => {
                 console.log(err)
             })
