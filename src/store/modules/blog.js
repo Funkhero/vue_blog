@@ -21,20 +21,23 @@ const Blog = {
         },
         setPost() {
             axios.post('/setPost', {
-                img: '/img/smiling.jpg',
-                title: 'Some title dsfgdfg sdfh sdfh'
+                img: 'img/picture.jpg',
+                title: 'Some title for post'
             }).then(response => {
-                console.log(response);
                 this.commit('setOne', { type: 'posts', data: response.data });
+            }).catch((err) => {
+                console.log(err)
+            })
+        },
+        deletePosts() {
+            axios.post('/deletePost').then(response => {
             }).catch((err) => {
                 console.log(err)
             })
         }
     },
     getters: {
-        posts: state => {
-            return state.posts
-        }
+        posts: state => state.posts
     }
 };
 

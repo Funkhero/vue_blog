@@ -15,20 +15,18 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
+    import { mapActions, mapGetters } from 'vuex'
 
     module.exports = {
         name: 'blog',
         computed: {
-            posts() {
-                return this.$store.getters.posts
-            }
+            ...mapGetters(['posts'])
         },
         created() {
             this.getPosts();
         },
         methods: {
-            ...mapActions(['getPosts', 'setPost'])
+            ...mapActions(['getPosts', 'setPost', 'deletePosts'])
         }
     }
 </script>

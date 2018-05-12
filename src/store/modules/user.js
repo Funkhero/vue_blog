@@ -15,7 +15,7 @@ const User = {
     },
     actions: {
         signIn({ commit }, { email, password }) {
-            axios.post('/api/signIn', {
+            axios.post('/signIn', {
                 email,
                 password
             }).then((response) => {
@@ -27,7 +27,7 @@ const User = {
         },
         signUp({ commit }, { email, password, repassword }) {
             if (password === repassword) {
-                axios.post('/api/signUp', {
+                axios.post('/signUp', {
                     email,
                     password,
                     repassword
@@ -57,9 +57,7 @@ const User = {
         }
     },
     getters: {
-        getUser: state => {
-            return state.user
-        }
+        getUser: state => state.user
     }
 };
 

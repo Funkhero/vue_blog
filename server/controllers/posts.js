@@ -16,12 +16,23 @@ exports.setPost = (req, res) => {
       img: req.body.img,
       title: req.body.title
     };
-    Posts.setPost(post, (err, docs) => {
+    Posts.setPost(post, (err, posts) => {
         if (err) {
             console.log(err);
             return res.status(500).send({ error: err.message });
         } else {
             res.send(post);
+        }
+    });
+};
+
+exports.deletePosts = (req, res) => {
+    Posts.deletePosts((err, posts) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send({ error: err.message });
+        } else {
+            res.send(posts);
         }
     });
 };

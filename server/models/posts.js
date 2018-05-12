@@ -11,3 +11,9 @@ exports.setPost = (post, cb) => {
         cb(err, post);
     });
 };
+
+exports.deletePosts = (posts, cb) => {
+    db.get().collection('posts').deleteMany(posts, (err, docs) => {
+        cb(err, posts);
+    });
+};
