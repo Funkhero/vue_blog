@@ -33,12 +33,12 @@ module.exports = {
           },
           {
               test: /\.(png|jpe?g|gif|svg)$/,
-              loader: 'url-loader',
-              options: {
-                  limit: 10000,
-                  name: '[name].[ext]',
-                  publicPath: '../',
-                  outputPath: 'img/'
+              use: {
+                  loader: 'file-loader',
+                  options: {
+                      name: 'img/[name].[ext]',
+                      // outputPath: '/img/'
+                  }
               }
           },
           {
@@ -79,10 +79,8 @@ module.exports = {
               test: /\.(woff2?|eot|ttf|otf)$/,
               loader: 'url-loader',
               options: {
-                  limit: 10000,
                   name: '[name].[ext]',
-                  publicPath: '../',
-                  outputPath: 'fonts/'
+                  outputPath: '/fonts'
               }
           },
       ]

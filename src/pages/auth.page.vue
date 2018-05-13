@@ -57,9 +57,10 @@
                 this.haveReg = val;
             },
             signInform(model) {
-                this.$validator.validateAll().then(result => {
-                    if (result) {
+                this.$validator.validateAll().then(docs => {
+                    if (docs) {
                         this.signIn( model ).then(result => {
+                            this.$router.push(result.data.redirect);
                         }, error => {
                             console.error(error);
                         });
@@ -69,9 +70,10 @@
                 });
             },
             signUpform(model) {
-                this.$validator.validateAll().then(result => {
-                    if (result) {
+                this.$validator.validateAll().then(docs => {
+                    if (docs) {
                         this.signUp( model ).then(result => {
+                            this.$router.push(result.data.redirect);
                         }, error => {
                             console.error(error);
                         });

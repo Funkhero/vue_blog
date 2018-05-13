@@ -1,7 +1,7 @@
 const User = require('../models/user');
 
 exports.signIn = (req, res) => {
-    User.getUser((err, user, regUser) => {
+    User.getUser(req.body, (err, user, regUser) => {
         if (err) {
             console.log(err);
             return res.status(500).send({ error: err.message });
@@ -16,7 +16,8 @@ exports.signIn = (req, res) => {
 };
 
 exports.signUp = (req, res) => {
-    User.signUp((err, user) => {
+    let user = req.body;
+    User.signUp(user, (err, users) => {
         if (err) {
             console.log(err);
             return res.status(500).send({ error: err.message });

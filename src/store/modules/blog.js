@@ -21,7 +21,7 @@ const Blog = {
         },
         setPost() {
             axios.post('/setPost', {
-                img: 'img/picture.jpg',
+                img: '/img/picture.jpg',
                 title: 'Some title for post'
             }).then(response => {
                 this.commit('setOne', { type: 'posts', data: response.data });

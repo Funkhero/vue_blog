@@ -15,35 +15,41 @@ const User = {
     },
     actions: {
         signIn({ commit }, { email, password }) {
-            axios.post('/signIn', {
-                email,
-                password
-            }).then((response) => {
-                commit('set', { type: 'user', data: response.user });
-                console.log(email, password)
-            }).catch((err) => {
-                console.log(err)
-            })
+            return new Promise((resolve, reject) => {
+                axios.post('/signIn', {
+                    email,
+                    password
+                }).then((response) => {
+                    commit('set', { type: 'user', data: response.user });
+                    resolve(response)
+                }).catch((err) => {
+                    console.log(err)
+                    reject(err)
+                })
+            });
         },
         signUp({ commit }, { email, password, repassword }) {
             if (password === repassword) {
-                axios.post('/signUp', {
-                    email,
-                    password,
-                    repassword
-                }).then((response) => {
-                    commit('set', { type: 'user', data: response.user });
-                    console.log(email, password, repassword)
-                }).catch((err) => {
-                    console.log(err)
-                })
+                return new Promise((resolve, reject) => {
+                    axios.post('/signUp', {
+                        email,
+                        password,
+                        repassword
+                    }).then((response) => {
+                        commit('set', { type: 'user', data: response.user });
+                        resolve(response)
+                    }).catch((err) => {
+                        console.log(err)
+                        reject(err)
+                    })
+                });
             } else {
                 alert('Пароли не совпадают')
             }
         },
         update({ commit }, { name, email, info }) {
             return new Promise((resolve, reject) => {
-                axios.post('/users', { name, email, info }).then(
+                axios.post('/userUpdate', { name, email, info }).then(
                     response => {
                         console.log(response);
                         commit('set', { item: 'user', payload: response.user });
