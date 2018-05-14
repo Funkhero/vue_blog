@@ -1,7 +1,11 @@
+import {
+    signIn,
+    signUp,
+    update
+} from '../../api'
 
 const User = {
     state: {
-        // user: null
         user: {
             name: 'Petya',
             email: 'petya@qwerty.com',
@@ -16,32 +20,25 @@ const User = {
     actions: {
         signIn({ commit }, { email, password }) {
             return new Promise((resolve, reject) => {
-                axios.post('/signIn', {
-                    email,
-                    password
-                }).then((response) => {
-                    commit('set', { type: 'user', data: response.user });
-                    resolve(response)
+                signIn(email, password).then((res) => {
+                    commit('set', {type: 'user', data: res.user});
+                    resolve(res)
                 }).catch((err) => {
                     console.log(err)
                     reject(err)
-                })
+                });
             });
         },
         signUp({ commit }, { email, password, repassword }) {
             if (password === repassword) {
                 return new Promise((resolve, reject) => {
-                    axios.post('/signUp', {
-                        email,
-                        password,
-                        repassword
-                    }).then((response) => {
-                        commit('set', { type: 'user', data: response.user });
-                        resolve(response)
+                    signUp(email, password).then((res) => {
+                        commit('set', {type: 'user', data: res.user});
+                        resolve(res)
                     }).catch((err) => {
                         console.log(err)
                         reject(err)
-                    })
+                    });
                 });
             } else {
                 alert('Пароли не совпадают')
@@ -49,16 +46,13 @@ const User = {
         },
         update({ commit }, { name, email, info }) {
             return new Promise((resolve, reject) => {
-                axios.post('/userUpdate', { name, email, info }).then(
-                    response => {
-                        console.log(response);
-                        commit('set', { item: 'user', payload: response.user });
-                        resolve();
-                    },
-                    error => {
-                        reject(error);
-                    }
-                );
+                update(email, password).then((res) => {
+                    commit('set', {type: 'user', data: res.user});
+                    resolve(res)
+                }).catch((err) => {
+                    console.log(err);
+                    reject(err)
+                });
             });
         }
     },

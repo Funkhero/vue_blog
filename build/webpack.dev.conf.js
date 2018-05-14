@@ -4,7 +4,7 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: path.join(__dirname, "dist"),
-        port: 90,
+        port: 8080,
         proxy: {
             '**': {
                 target: 'http://localhost:3030',

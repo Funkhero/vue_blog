@@ -1,3 +1,8 @@
+import {
+    getPosts,
+    setPost,
+    deletePosts
+} from '../../api'
 
 const Blog = {
     state: {
@@ -13,14 +18,15 @@ const Blog = {
     },
     actions: {
         getPosts() {
-            axios.get('/getPosts').then(response => {
-                this.commit('set', { type: 'posts', data: response.data });
-            }).catch((err) => {
-                console.log(err)
-            })
+            getPosts()
+                .then(response => {
+                    this.commit('set', { type: 'posts', data: response.data });
+                }).catch((err) => {
+                    console.log(err)
+                })
         },
         setPost() {
-            axios.post('/setPost', {
+            setPost({
                 img: '/img/picture.jpg',
                 title: 'Some title for post'
             }).then(response => {
@@ -30,10 +36,11 @@ const Blog = {
             })
         },
         deletePosts() {
-            axios.post('/deletePost').then(response => {
-            }).catch((err) => {
-                console.log(err)
-            })
+            deletePosts()
+                .then(response => {})
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     },
     getters: {
