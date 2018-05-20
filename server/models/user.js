@@ -9,7 +9,7 @@ exports.signUp = (user, cb) => {
 exports.getUser = (user, cb) => {
     db.get().collection('users').findOne({ email: user.email }, (err, regUser) => {
         if (regUser) {
-            cb(user, regUser);
+            cb(err, user, regUser);
         } else {
             cb(err);
         }

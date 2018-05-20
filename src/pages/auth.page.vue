@@ -60,7 +60,11 @@
                 this.$validator.validateAll().then(docs => {
                     if (docs) {
                         this.signIn( model ).then(result => {
-                            this.$router.push(result.data.redirect);
+                            if (result.data.redirect) {
+                                this.$router.push(result.data.redirect);
+                            } else {
+                                alert(result.data.error)
+                            }
                         }, error => {
                             console.error(error);
                         });
@@ -73,7 +77,11 @@
                 this.$validator.validateAll().then(docs => {
                     if (docs) {
                         this.signUp( model ).then(result => {
+                          if (result.data.redirect) {
                             this.$router.push(result.data.redirect);
+                          } else {
+                            alert(result.data.error)
+                          }
                         }, error => {
                             console.error(error);
                         });
