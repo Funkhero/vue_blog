@@ -14,10 +14,10 @@
       unicode="&#xEA02;"
       horiz-adv-x="27.560000000000002" d=" M0 21.2H27.56V16.96H0V21.2z M0 12.72H27.56V8.48H0V12.72z M0 4.24H27.56V0H0V4.24z" />
     <glyph glyph-name="next"
-      unicode="&#xEA03;"
+      unicode="&#xEA04;"
       horiz-adv-x="42.4" d=" M0 1.1777777777778L21.2 10.6L0 20.0222222222222z M18.8444444444444 1.1777777777778L40.0444444444444 10.6L18.8444444444444 20.0222222222222z M37.6888888888889 21.2H42.4V0H37.6888888888889V21.2z" />
     <glyph glyph-name="playlist"
-      unicode="&#xEA04;"
+      unicode="&#xEA03;"
       horiz-adv-x="27.560000000000002" d=" M27.56 21.2H27.56V21.2H27.56V21.2z M27.56 12.72H27.56V12.72H27.56V12.72z M27.56 4.24H27.56V4.24H27.56V4.24z" />
     <glyph glyph-name="playpause"
       unicode="&#xEA05;"

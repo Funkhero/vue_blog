@@ -24,7 +24,6 @@ const User = {
                     commit('set', {type: 'user', data: res.user});
                     resolve(res)
                 }).catch((err) => {
-                    console.log(err)
                     reject(err)
                 });
             });
@@ -36,7 +35,6 @@ const User = {
                         commit('set', {type: 'user', data: res.user});
                         resolve(res)
                     }).catch((err) => {
-                        console.log(err)
                         reject(err)
                     });
                 });
