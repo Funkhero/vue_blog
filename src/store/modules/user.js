@@ -28,19 +28,15 @@ const User = {
                 });
             });
         },
-        signUp({ commit }, { email, password, repassword }) {
-            if (password === repassword) {
-                return new Promise((resolve, reject) => {
-                    signUp(email, password).then((res) => {
-                        commit('set', {type: 'user', data: res.user});
-                        resolve(res)
-                    }).catch((err) => {
-                        reject(err)
-                    });
-                });
-            } else {
-                alert('Пароли не совпадают')
-            }
+        signUp({ commit }, { email, password }) {
+          return new Promise((resolve, reject) => {
+            signUp(email, password).then((res) => {
+              commit('set', {type: 'user', data: res.user});
+              resolve(res)
+            }).catch((err) => {
+              reject(err)
+            });
+          });
         },
         update({ commit }, { name, email, info }) {
             return new Promise((resolve, reject) => {

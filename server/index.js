@@ -22,7 +22,6 @@ db.connect('mongodb://localhost:27017', (err) => {
   })
 });
 
-
 app.use(session({
   secret: 'doesnt metter',
   resave: false,

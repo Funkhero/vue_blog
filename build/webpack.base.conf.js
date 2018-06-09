@@ -110,7 +110,8 @@ module.exports = {
             Vuex: 'vuex',
             VueRouter: 'vue-router',
             axios: 'axios',
-            VeeValidate: 'vee-validate'
+            VeeValidate: 'vee-validate',
+            Notifications: 'vue-notification'
         })
     ]
 };

@@ -8,6 +8,7 @@ import App from './App.vue'
 Vue.use(Vuex);
 Vue.use(VeeValidate);
 Vue.use(VueRouter.default);
+Vue.use(Notifications.default);
 
 const store = new Vuex.Store(Store);
 

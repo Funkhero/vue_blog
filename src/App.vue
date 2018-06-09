@@ -1,7 +1,8 @@
 <template lang="html">
     <div class="app">
         <top-menu v-show="currentRoute !== '/'"></top-menu>
-        <router-view></router-view>
+        <router-view/>
+        <notifications/>
     </div>
 </template>
 
