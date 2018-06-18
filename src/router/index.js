@@ -7,21 +7,21 @@ import cabinet from '../pages/cabinet.page.vue'
 import pageNotFound from '../pages/404.page.vue'
 
 const routes = [
-    { path: '/', component: introPage },
-    { path: '/main', component: mainPage },
-    { path: '/auth', component: authPage },
-    {
-        path: '/cabinet',
-        component: cabinet,
-        children: [
-            {
-                path: 'profile',
-                component: profilePage
-            }
-        ]
-    },
-    { path: '/blog', component: blogPage },
-    { path: '/*', component: pageNotFound }
+  { path: '/', component: introPage },
+  { path: '/main', component: mainPage },
+  { path: '/auth', component: authPage },
+  {
+    path: '/cabinet',
+    component: cabinet,
+    children: [
+      {
+        path: 'profile',
+        component: profilePage
+      }
+    ]
+  },
+  { path: '/blog', component: blogPage },
+  { path: '/*', component: pageNotFound }
 ];
 
 export default routes

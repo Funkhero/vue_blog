@@ -1,12 +1,11 @@
 <template>
-    <div class="cabinet">
-        <router-view></router-view>
-    </div>
+  <div class="cabinet">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-    module.exports = {
-        name: 'cabinet',
-
-    }
+  export default {
+    name: 'cabinet',
+  }
 </script>

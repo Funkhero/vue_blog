@@ -13,15 +13,15 @@ Vue.use(Notifications.default);
 const store = new Vuex.Store(Store);
 
 export const router = new VueRouter.default({
-    // mode: 'history',
-    routes
+  // mode: 'history',
+  routes
 });
 
 sync(store, router);
 
 new Vue({
-    el: '#app',
-    store,
-    router,
-    render: h => h(App)
+  el: '#app',
+  store,
+  router,
+  render: h => h(App)
 });
