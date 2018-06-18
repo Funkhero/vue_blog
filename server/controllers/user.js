@@ -4,11 +4,11 @@ const crypto = require('crypto-js');
 exports.signIn = (req, res) => {
   User.getUser(req.body, (err, user, regUser) => {
     if (err) {
-      console.log(err);
       return res.status(500).send({ error: err.message });
     } else {
       if (user.password === makePlainText(regUser.password)) {
-      res.send( { "user": { "email": user.email, "_id": user._id}, "redirect": "/cabinet" } );
+
+        res.send( { "user": { "email": user.email, "_id": user._id}, "redirect": "/cabinet" } );
     } else {
       res.send( { "error": "Неверный логин или пароль" } );
     }
@@ -20,7 +20,6 @@ exports.signUp = (req, res) => {
   let newUser = req.body;
   User.getUser(req.body, (err, user, regUser) => {
     if (err) {
-      console.log(err);
       return res.status(500).send({ error: err.message });
     } else if (regUser) {
       res.send( { "error": "Пользователь с таким email уже существует" } );
@@ -30,7 +29,6 @@ exports.signUp = (req, res) => {
         password: makeHash(newUser.password)
       }, (err, user) => {
         if (err) {
-          console.log(err);
           return res.status(500).send({ error: err.message });
         } else {
           res.send( { "user": { "email": user.email }, "redirect": "/cabinet" } );
