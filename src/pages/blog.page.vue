@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-    <div @click.prevent="setPost" class="blog__block">
+    <div class="blog__block">
       <ul class="blog__list">
         <blog-item v-for="(post, index) in posts" :key="index" class="blog__post" v-bind="post"></blog-item>
       </ul>
@@ -24,7 +24,7 @@
       this.getPosts();
     },
     methods: {
-      ...mapActions(['getPosts', 'setPost', 'deletePosts'])
+      ...mapActions(['getPosts'])
     }
   }
 </script>
