@@ -17,7 +17,7 @@ const Blog = {
     }
   },
   actions: {
-    getPosts() {
+    loadPosts() {
       getPosts()
         .then(response => {
           this.commit('set', { type: 'posts', data: response.data });
@@ -37,14 +37,18 @@ const Blog = {
     },
     deletePosts() {
       deletePosts()
-          .then(response => {})
-          .catch((err) => {
-            console.log(err)
-          })
+        .then(response => {})
+        .catch((err) => {
+          console.log(err)
+        })
     }
   },
   getters: {
-    posts: state => state.posts
+    getPosts: state => state.posts,
+    getOnePost: state => (postId) => {
+      if (!state.posts) return false;
+      return state.posts.find(el => el.id === postId);
+    }
   }
 };
 

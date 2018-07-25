@@ -2,7 +2,7 @@
   <div class="blog">
     <div class="blog__block">
       <ul class="blog__list">
-        <blog-item v-for="(post, index) in posts" :key="index" class="blog__post" v-bind="post"></blog-item>
+        <blog-item v-for="(post, index) in getPosts" :key="index" class="blog__post" v-bind="post" :context="context"/>
       </ul>
     </div>
   </div>
@@ -14,17 +14,22 @@
 
   module.exports = {
     name: 'blog',
+    data() {
+      return {
+        context: 'postPage'
+      }
+    },
     components: {
       blogItem: BlogItem
     },
     computed: {
-      ...mapGetters(['posts'])
+      ...mapGetters(['getPosts'])
     },
     created() {
-      this.getPosts();
+      this.loadPosts();
     },
     methods: {
-      ...mapActions(['getPosts'])
+      ...mapActions(['loadPosts'])
     }
   }
 </script>

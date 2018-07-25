@@ -30,13 +30,8 @@
 
   export default {
     name: 'postCreate',
-    data() {
-      return {
-
-      }
-    },
     computed: {
-      ...mapGetters(['posts'])
+      ...mapGetters(['getOnePost'])
     },
     methods: {
       ...mapActions(['setPost', 'deletePosts'])
