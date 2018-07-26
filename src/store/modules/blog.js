@@ -6,7 +6,7 @@ import {
 
 const Blog = {
   state: {
-    posts: []
+    posts: null
   },
   mutations: {
     set(state, { type, data }) {
@@ -25,11 +25,8 @@ const Blog = {
           console.log(err)
         })
     },
-    setPost() {
-      setPost({
-        img: '/img/picture.jpg',
-        title: 'Some title for post'
-      }).then(response => {
+    setPost(data) {
+      setPost(data).then(response => {
         this.commit('setOne', { type: 'posts', data: response.data });
       }).catch((err) => {
         console.log(err)

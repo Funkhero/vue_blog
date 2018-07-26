@@ -2,7 +2,9 @@ import introPage from '../pages/intro.page.vue'
 import mainPage from '../pages/main.page.vue'
 import authPage from '../pages/auth.page.vue'
 import profilePage from '../pages/profile.page.vue'
-import blogPage from '../pages/blog.page.vue'
+import blogPage from '../pages/blog/blog.page.vue'
+import blogList from '../pages/blog/blog.list.vue'
+import blogItem from '../pages/blog/blog.item.vue'
 import pageNotFound from '../pages/404.page.vue'
 import cabinet from '../pages/cabinet/cabinet.list.vue'
 import cabinetLayout from '../pages/cabinet/cabinet.vue'
@@ -32,12 +34,12 @@ const routes = [
         name: 'cabinetList'
       },
       {
-        path: 'profile',
+        path: '/profile',
         component: profilePage,
         name: 'profile'
       },
       {
-        path: 'postCreate',
+        path: '/postCreate',
         component: postCreate,
         name: 'postCreate'
       },
@@ -54,18 +56,17 @@ const routes = [
     children: [
       {
         path: '',
-        component: cabinet,
-        name: 'cabinetList'
+        redirect: '/posts'
       },
       {
-        path: 'posts',
+        path: '/posts',
         component: blogList,
         name: 'blogList'
       },
       {
         path: 'posts/:id',
-        component: postPage,
-        name: 'postPage'
+        component: blogItem,
+        name: 'blogArticle'
       }
     ]
   },

@@ -25,7 +25,9 @@
       ...mapGetters(['getPosts'])
     },
     created() {
-      this.loadPosts();
+      if (!this.getPosts) {
+        this.loadPosts();
+      }
     },
     methods: {
       ...mapActions(['loadPosts'])

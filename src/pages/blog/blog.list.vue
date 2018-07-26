@@ -1,6 +1,7 @@
 <template>
   <div class="blog">
     <div class="blog__block">
+      <router-link/>
       <ul class="blog__list">
         <blog-item v-for="(post, index) in getPosts" :key="index" class="blog__post" v-bind="post" :context="context"/>
       </ul>
@@ -10,10 +11,10 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex';
-  import BlogItem from '../components/blog/BlogItem.vue';
+  import BlogItem from '../../components/blog/BlogItem.vue';
 
   module.exports = {
-    name: 'blog',
+    name: 'blogList',
     data() {
       return {
         context: 'postPage'
@@ -26,7 +27,9 @@
       ...mapGetters(['getPosts'])
     },
     created() {
-      this.loadPosts();
+      if (!this.getPosts) {
+        this.loadPosts();
+      }
     },
     methods: {
       ...mapActions(['loadPosts'])
